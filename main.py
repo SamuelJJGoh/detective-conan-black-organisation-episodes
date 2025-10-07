@@ -6,6 +6,7 @@ Project is used for non-commercial, educational purposes and is unaffiliated wit
 
 from bs4 import BeautifulSoup
 import requests
+import pandas as pd
 
 URL = "https://www.detectiveconanworld.com/wiki/Anime#Episodes"
 
@@ -46,4 +47,6 @@ for season in season_tables:
 
 # keep only episodes that have aired not future episodes
 black_org_episodes = [e for e in black_org_episodes if e.get("air_date")]
-print(black_org_episodes)
+
+df = pd.DataFrame(black_org_episodes)[["episode_no", "title", "air_date", "episode_url"]]
+df.to_csv("black_org_episodes.csv", index=False, encoding="utf-8-sig")
