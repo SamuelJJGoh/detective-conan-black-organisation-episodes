@@ -1,6 +1,6 @@
 """
-All data scraped from Detective Conan World (https://www.detectiveconanworld.com/).
-Project is used for non-commercial, educational purposes and is unaffiliated with DCW.
+All the data was scraped from Detective Conan World (https://www.detectiveconanworld.com/).
+Project is used for non-commercial, educational purposes only and is unaffiliated with DCW.
 
 This project produces two CSVs: 
 - black_org_episodes.csv has all the episodes involving the black organisation in Detective Conan 
@@ -10,7 +10,7 @@ This project produces two CSVs:
   any episodes that were remastered or reran
 - total of 87 episodes
 
-The csv file produced and the number of epsiodes is as of 7th October 2025.
+The csv files produced and the number of episodes in each file is as of 7th October 2025.
 """
 
 
