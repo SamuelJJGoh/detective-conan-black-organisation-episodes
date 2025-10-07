@@ -34,12 +34,16 @@ for season in season_tables:
         if not tds:
             continue
         
+        episode_url = tr.find("a").get("href")
+
         # some episodes don't have a plot icon (don't have tds[5])
         plot = [img.get("alt") for img in (tds[5].find_all("img", alt=True) if len(tds) > 5 else [])]
         if "Black Organization" in plot:
             black_org_episodes.append({"episode_no": tds[0].getText(strip=True), 
                                        "title": tds[2].getText(strip=True),
-                                       "air_date": tds[3].getText(strip=True)})
+                                       "air_date": tds[3].getText(strip=True),
+                                       "episode_url": f"https://www.detectiveconanworld.com{episode_url}"})
 
 # keep only episodes that have aired not future episodes
 black_org_episodes = [e for e in black_org_episodes if e.get("air_date")]
+print(black_org_episodes)
