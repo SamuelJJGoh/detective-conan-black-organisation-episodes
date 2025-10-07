@@ -1,6 +1,14 @@
 """
 All data scraped from Detective Conan World (https://www.detectiveconanworld.com/).
 Project is used for non-commercial, educational purposes and is unaffiliated with DCW.
+
+This project produces two CSVs: 
+- black_org_episodes.csv has all the episodes involving the black organisation in Detective Conan 
+- total of 109 episodes
+
+- non_remastered_black_org_episodes.csv has all the episodes involving the black organisation but excludes 
+  any episodes that were remastered or reran
+- total of 87 episodes
 """
 
 
@@ -48,5 +56,13 @@ for season in season_tables:
 # keep only episodes that have aired not future episodes
 black_org_episodes = [e for e in black_org_episodes if e.get("air_date")]
 
+# remove remastered and reran episodes
+non_remastered_black_org_episodes = [
+    e for e in black_org_episodes 
+    if all(s not in (e.get("title")) for s in ("Remastered", "TV Special"))]
+
 df = pd.DataFrame(black_org_episodes)[["episode_no", "title", "air_date", "episode_url"]]
 df.to_csv("black_org_episodes.csv", index=False, encoding="utf-8-sig")
+
+non_remastered_df = pd.DataFrame(non_remastered_black_org_episodes)[["episode_no", "title", "air_date", "episode_url"]]
+non_remastered_df.to_csv("non_remastered_black_org_episodes.csv", index=False, encoding="utf-8-sig")
