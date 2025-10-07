@@ -9,6 +9,8 @@ This project produces two CSVs:
 - non_remastered_black_org_episodes.csv has all the episodes involving the black organisation but excludes 
   any episodes that were remastered or reran
 - total of 87 episodes
+
+The csv file produced and the number of epsiodes is as of 7th October 2025.
 """
 
 
