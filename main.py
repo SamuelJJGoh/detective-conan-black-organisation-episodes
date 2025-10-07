@@ -27,7 +27,7 @@ page = requests.get(URL, headers=headers)
 soup = BeautifulSoup(page.text, "html.parser")
 
 content = soup.find("div", class_="mw-parser-output")
-season_tables = content.find_all("table", class_="wikitable") # only include the first 30 tables as there are only 30 seasons so far
+season_tables = content.find_all("table", class_="wikitable") 
 
 black_org_episodes = []
 
